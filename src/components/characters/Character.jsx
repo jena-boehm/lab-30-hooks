@@ -4,10 +4,10 @@ import { Link } from 'react-router-dom';
 
 const Character = ({ name, image }) => (
   <figure>
-    {/* <Link to={`/character/${name}`}> */}
     <figcaption>{name}</figcaption>
-    {/* </Link> */}
-    <img src={image} alt={name} />
+    <Link to={`/character/${name}`}>
+      <img src={image} alt={name} />
+    </Link>
   </figure>
 );
 

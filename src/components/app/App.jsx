@@ -1,4 +1,4 @@
-import React, { Component } from 'react';
+import React from 'react';
 import {
   BrowserRouter as Router,
   Route,
@@ -7,24 +7,23 @@ import {
 import HomePage from '../../containers/HomePage';
 import Detail from '../details/Detail';
 
-export default class App extends Component {
-  render() {
-    return (
-      <>
-        <Router>
-          <Switch>
-            <Route
-              path="/"
-              exact
-              render={(routerProps) => <HomePage {...routerProps} />} />
-            <Route 
-              path="/character/:name"
-              exact
-              render={(routerProps) => <Detail {...routerProps} />}
-            />
-          </Switch>
-        </Router>
-      </>
-    );
-  }
-}
+const App = () => {
+  return (
+    <>
+      <Router>
+        <Switch>
+          <Route
+            path="/"
+            exact
+            component={HomePage} />
+          <Route
+            path="/character/:name"
+            exact
+            component={Detail} />
+        </Switch>
+      </Router>
+    </>
+  );
+};
+
+export default App;
