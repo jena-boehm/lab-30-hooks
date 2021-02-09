@@ -5,9 +5,10 @@ import {
   Switch,
 } from 'react-router-dom';
 import HomePage from '../../containers/HomePage';
-import Detail from '../details/Detail';
+import DetailPage from '../../containers/DetailPage';
 
 const App = () => {
+
   return (
     <>
       <Router>
@@ -19,7 +20,7 @@ const App = () => {
           <Route
             path="/character/:name"
             exact
-            component={Detail} />
+            component={DetailPage} />
         </Switch>
       </Router>
     </>
