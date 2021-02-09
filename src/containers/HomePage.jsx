@@ -1,24 +1,21 @@
-import React, { Component } from 'react';
+import React, { useEffect, useState } from 'react';
 import CharacterList from '../components/characters/CharacterList';
 import { getCharacters } from '../services/fetchCharacters';
 
-export default class HomePage extends Component {
-    state = {
-      loading: true,
-      characters: []
-    }
+const HomePage = () => {
+  const [loading, setLoading] = useState(true);
+  const [characters, setCharacters] = useState([]);
 
-    componentDidMount() {
-      getCharacters()
-        .then(characters => this.setState(
-          { loading: false, characters }));
-    }
+  useEffect(() => {
+    getCharacters()
+      .then(characters => {
+        setCharacters(characters);
+        setLoading(false);
+      });
+  }, []);
 
-    render() {
-      const { loading, characters } = this.state;
+  if(loading) return <div>Loading</div>;
+  return <CharacterList characters={characters} />;
+};
 
-      if(loading) return <div>Loading</div>;
-
-      return <CharacterList characters={characters} />;
-    }
-}
+export default HomePage;

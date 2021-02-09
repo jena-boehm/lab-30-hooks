@@ -2,7 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 
 const Detail = ({ name, image }) => (
-  <figure data-testid="details">
+  <figure>
     <figcaption>Name: {name}</figcaption>
     <img src={image} alt={name} />
   </figure>
